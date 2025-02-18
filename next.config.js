@@ -4,8 +4,8 @@ const webpack = require('webpack');
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    appDir: true,
-    serverActions: true
+    //appDir: true,
+    serverActions: {},
   },
   webpack: (config) => {
     // Define the `FLUENTFFMPEG_COV` variable as false
