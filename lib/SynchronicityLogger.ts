@@ -5,10 +5,10 @@ const LOG_FORMAT = process.env.LOG_FORMAT;
 
 enum LogLevel {
   Debug = 0,
-  Trace = 0,
-  Info = 1,
-  Warn = 2,
-  Error = 3
+  Trace = 1, 
+  Info = 2,
+  Warn = 3,
+  Error = 4,
 }
 
 export class SynchronicityLogger {
