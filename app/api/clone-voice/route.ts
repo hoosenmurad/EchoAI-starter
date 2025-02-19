@@ -26,9 +26,8 @@ export async function POST(req: Request) {
 
   if (!audioFile.ok) {
     const errorText = await audioFile.text();
-    logger.error(
-      `Failed to fetch audio file: - status=${audioFile.status} - status-text=${audioFile.statusText} - text=${errorText}`
-    );
+    logger.error(`Failed to fetch audio file: - status=${audioFile.status} - status-text=${audioFile.statusText}`);
+    logger.error(`Error text: ${errorText}`);
     return new Response(JSON.stringify({ error: { statusCode: 500 } }), {
       status: 500
     });
@@ -53,11 +52,10 @@ export async function POST(req: Request) {
   logger.log('Got response from Eleven Labs API when cloning voice');
 
   if (!voiceClone.ok) {
-    const errorResponse = await voiceClone.text(); // Get the detailed error message
-    logger.error(
-      `Failed to clone voice: ${voiceClone.status} ${voiceClone.statusText}`,
-      errorResponse
-    );
+    const errorResponse = await voiceClone.text();
+    logger.error(`Failed to clone voice: ${voiceClone.status} ${voiceClone.statusText}`);
+    logger.error(`Error response: ${errorResponse}`);
+
     const data = {
       voice_id: process.env.NEXT_PUBLIC_VOICE_OVERRIDE_ID
     };

@@ -12,6 +12,12 @@ enum LogLevel {
 }
 
 export class SynchronicityLogger {
+  error(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
+  log(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
   private readonly logger: Logger<any>;
   private readonly format: 'pretty' | 'json';
   private name = 'SynchronicityLogger';
@@ -78,5 +84,14 @@ export class SynchronicityLogger {
     }
 
     return newLogObj;
+  }
+
+  /**
+   * Creates and returns a sub-logger with a modified name.
+   * @param name - The name for the sub-logger.
+   * @returns A new SynchronicityLogger instance with the given name.
+   */
+  getSubLogger({ name }: { name: string }): SynchronicityLogger {
+    return new SynchronicityLogger({ name: `${this.name}|${name}` });
   }
 }
