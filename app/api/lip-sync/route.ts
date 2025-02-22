@@ -54,7 +54,7 @@ export async function POST(req: Request) {
       { status: 400 }
     );
   }
-  logger.log`Video and audio exist`;
+  logger.log(`Video and audio exist`.toString());
 
   // Validate URLs after confirming they exist
   if (!isValidUrl(videoUrl) || !isValidUrl(audioUrl)) {
