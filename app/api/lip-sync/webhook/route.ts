@@ -38,7 +38,8 @@ export async function POST(req: Request) {
   }
 
   const { result } = await req.json();
-  logger.log('GOT RESULT IN LIP SYNC WEBHOOK', result);
+  logger.log(`GOT RESULT IN LIP SYNC WEBHOOK: ${JSON.stringify(result)}`);
+
 
   const job = await getLatestJob(result.originalVideoUrl);
   if (job.status !== 'synchronizing') {
@@ -48,9 +49,8 @@ export async function POST(req: Request) {
   }
 
   const { id, url, creditsDeducted } = result;
-  logger.log('Updating job', {
-    jobId: id
-  });
+  logger.log(`Updating job with jobId: ${id}`);
+
 
   const { error } = await supabase
     .from('jobs')
@@ -62,11 +62,12 @@ export async function POST(req: Request) {
     .eq('original_video_url', result.originalVideoUrl)
     .select();
 
+
   if (error) {
-    logger.error('Failed to update job', {
-      jobId: id,
-      error
-    });
+    logger.error(
+      `Failed to update job: ${JSON.stringify({ jobId: id, error })}`
+    );
+    
     throw error;
   }
 
