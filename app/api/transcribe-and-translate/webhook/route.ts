@@ -57,7 +57,7 @@ export async function POST(req: Request) {
     });
   }
 
-  logger.log('GOT RESULT IN TRANSCRIBE WEBHOOK', result.request_id);
+  logger.log(`GOT RESULT IN TRANSCRIBE WEBHOOK: ${result.request_id}`);
   const transcript = result.payload.prediction;
 
   const transalatedText = transcript
@@ -83,7 +83,7 @@ export async function POST(req: Request) {
     translated_text: transalatedText,
     status: 'cloning'
   };
-  logger.log(`Updating job with ID ${result.request_id}`, update);
+  logger.log(`Updating job with ID ${result.request_id}: ${update}`);
   const { error } = await supabase
     .from('jobs')
     .update({
@@ -92,14 +92,14 @@ export async function POST(req: Request) {
     .eq('transcription_id', result.request_id)
     .select();
 
-  if (error) {
-    logger.log('Failed to update job', error);
-    return new Response(JSON.stringify({ error: { statusCode: 500 } }), {
-      status: 500
-    });
+    if (error) {
+      logger.log(`Failed to update job: ${JSON.stringify(error)}`);
+      return new Response(JSON.stringify({ error: { statusCode: 500 } }), {
+        status: 500
+      });
   } else {
-    logger.log('Updated job with ID', result.request_id);
+      logger.log(`Updated job with ID: ${result.request_id}`);
   }
-
-  return NextResponse.json({ success: true });
+  
+  return NextResponse.json({ success: true });  
 }

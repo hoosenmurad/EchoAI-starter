@@ -26,7 +26,7 @@ export async function POST(req: Request) {
   const id = req.headers.get('X-JOB-ID');
   const data = req.body;
 
-  logger.log('Speech Synthesis webhook - data: ', data);
+  logger.log(`Speech Synthesis webhook - data: ${JSON.stringify(data)}`);
 
   const uuid = uuidv4();
   const tempDir =
@@ -66,7 +66,7 @@ export async function POST(req: Request) {
           });
 
         if (error) {
-          logger.error('Error uploading audio to Supabase:', error);
+          logger.error(`Error uploading audio to Supabase: ${error.message}`);
           reject(error);
         }
 
@@ -80,7 +80,7 @@ export async function POST(req: Request) {
         }/storage/v1/object/public/translation/${data!.path}`;
         resolve(url);
       } catch (error) {
-        logger.error('Error uploading audio to Supabase:', error);
+        logger.error(`Error uploading audio to Supabase: ${JSON.stringify(error)}`);
         reject(error);
       }
     });
@@ -102,11 +102,7 @@ export async function POST(req: Request) {
     .select();
 
   if (error) {
-    logger.error('Failed to update job', {
-      jobId: id,
-      error
-    });
-    throw error;
+    logger.error(`Failed to update job - jobId: ${id}, error: ${JSON.stringify(error)}`);
   }
 
   return new Response(JSON.stringify({}), {

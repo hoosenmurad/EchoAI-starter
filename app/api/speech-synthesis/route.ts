@@ -55,7 +55,7 @@ export async function POST(req: Request) {
       { status: 400 }
     );
   }
-  logger.log`Speech synthesis inputs exist`;
+  logger.log('Speech synthesis inputs exist');
   logger.log('Sending request to SyncLabs speech-synthesis wrapper');
 
   try {
