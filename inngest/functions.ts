@@ -29,19 +29,15 @@ const getLatestJob = async (jobId: string) => {
     .neq('is_deleted', true);
 
   if (fetchError) {
-    l.error('Failed to fetch job', {
-      jobId,
-      error: fetchError
-    });
+    l.error(`Failed to fetch job - jobId: ${jobId}, error: ${JSON.stringify(fetchError)}`);
     throw fetchError;
   }
 
   if (!fetchedJobs || fetchedJobs.length === 0) {
-    l.error('Job not found', {
-      jobId
-    });
+    l.error(`Job not found - jobId: ${jobId}`);
     throw new Error('Job not found');
-  }
+}
+
 
   return fetchedJobs?.[0];
 };
@@ -53,13 +49,11 @@ const updateJob = async (jobId: string, updatedFields: any) => {
     .eq('id', jobId)
     .select();
   if (error) {
-    l.error('Failed to update job', {
-      jobId,
-      error
-    });
+    l.error(`Failed to update job - jobId: ${jobId}, error: ${JSON.stringify(error)}`);
     throw error;
   }
 };
+
 
 export const processJob = inngest.createFunction(
   {
@@ -79,20 +73,19 @@ export const processJob = inngest.createFunction(
         videoUrl: string;
         audioUrl: string;
       } = event.data.event.data;
-      l.error('Failed to process job', data, error);
+      l.error(`Failed to process job - jobId: ${data.jobId}, error: ${JSON.stringify(error)}, data: ${JSON.stringify(data)}`);
+    
 
       const job = await getLatestJob(data.jobId);
-      l.log('Deleting voice on failure', {
-        jobId: job.id
-      });
-      await deleteVoice(job);
-      l.log('Deleted voice on failure', {
-        jobId: job.id
-      });
+l.log(`Deleting voice on failure - jobId: ${job.id}`);
 
-      await updateJob(data.jobId, {
-        status: 'failed'
-      });
+await deleteVoice(job);
+
+l.log(`Deleted voice on failure - jobId: ${job.id}`);
+
+await updateJob(data.jobId, {
+  status: 'failed'
+});
     }
   },
   { event: 'jobs.submitted' },
@@ -107,7 +100,7 @@ export const processJob = inngest.createFunction(
       name: data.jobId
     });
 
-    logger.log('Processing job:', data);
+    logger.log(`Processing job: ${JSON.stringify(data)}`);
 
     let job = await getLatestJob(data.jobId);
     if (job.status === 'completed') {
@@ -125,7 +118,8 @@ export const processJob = inngest.createFunction(
     if (!hasTranscript && !job.transcription_id) {
       logger.log('transcribing');
       const { transcription_id } = await transcribeAndTranslate(job);
-      logger.log('Transcription ID', transcription_id);
+      logger.log(`Transcription ID: ${transcription_id}`);
+
 
       logger.log('updating job with transcription id');
       await updateJob(data.jobId, {
@@ -152,7 +146,7 @@ export const processJob = inngest.createFunction(
         }
 
         attempts += 1;
-        logger.log("not ready yet, let's wait, attempt #", attempts);
+        logger.log(`Not ready yet, let's wait. Attempt #${attempts}`);
         await new Promise((resolve) => setTimeout(resolve, 2000));
       } while (true);
     }
