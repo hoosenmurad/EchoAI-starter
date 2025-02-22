@@ -1,7 +1,8 @@
 # Translation AI by [Sync Labs](https://synclabs.so)
 
 Translation AI is an open-source tool for translating spoken language in video content with accurate lip synchronization. The purpose of this repo is to help developers quickly integrate multilingual support into video-based apps. This project provides essential APIs and documentation to facilitate the development of applications requiring video translation with lip-sync capabilities.
-<!-- 
+
+<!--
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsynchronicity-labs%2Ftranslation-starter&env=SYNC_LABS_API_KEY,OPENAI_API_KEY,GLADIA_API_KEY,ELEVEN_LABS_API_KEY,NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,STRIPE_SECRET_KEY&envDescription=API%20Keys%20and%20other%20environement%20variables%20required%20for%20this%20app%20to%20function%20correctly.&envLink=https%3A%2F%2Fgithub.com%2Fsynchronicity-labs%2Ftranslation-starter%231-initiate-deployment&project-name=translation-starter&repository-name=translation-starter&integration-ids=oac_VqOgBHqhEoFTPzGkPd7L0iH6&external-id=https%3A%2F%2Fgithub.com%2Fsynchronicity-labs%2Ftranslation-starter%2Ftree%2Fmain) -->
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsynchronicity-labs%2Ftranslation-starter&env=SYNC_LABS_API_KEY,GLADIA_API_KEY,ELEVEN_LABS_API_KEY,NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,STRIPE_SECRET_KEY,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,SUPABASE_SERVICE_ROLE_KEY&envDescription=API%20Keys%20and%20other%20environement%20variables%20required%20for%20this%20app%20to%20function%20correctly.&envLink=https%3A%2F%2Fgithub.com%2Fsynchronicity-labs%2Ftranslation-starter%231-initiate-deployment&project-name=translation-starter&repository-name=translation-starter&external-id=https%3A%2F%2Fgithub.com%2Fsynchronicity-labs%2Ftranslation-starter%2Ftree%2Fmain)
@@ -30,7 +31,7 @@ To successfully deploy the template, execute the following steps in order:
 
 <!-- [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsynchronicity-labs%2Ftranslation-starter&env=SYNC_LABS_API_KEY,GLADIA_API_KEY,ELEVEN_LABS_API_KEY,NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,STRIPE_SECRET_KEY&envDescription=API%20Keys%20and%20other%20environement%20variables%20required%20for%20this%20app%20to%20function%20correctly.&envLink=https%3A%2F%2Fgithub.com%2Fsynchronicity-labs%2Ftranslation-starter%231-initiate-deployment&project-name=translation-starter&repository-name=translation-starter&external-id=https%3A%2F%2Fgithub.com%2Fsynchronicity-labs%2Ftranslation-starter%2Ftree%2Fmain) -->
 
-<!-- 
+<!--
 
 2. Add Integrations
 
@@ -47,6 +48,7 @@ To successfully deploy the template, execute the following steps in order:
     - [Gladia](https://docs.gladia.io/reference/overview#getting-your-api-key)
     - [Eleven Labs](https://elevenlabs.io/docs/api-reference/authentication)
     - [Stripe](https://stripe.com/docs/api/authentication) -->
+
 ### 1. Initiate Deployment
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsynchronicity-labs%2Ftranslation-starter&env=SYNC_LABS_API_KEY,GLADIA_API_KEY,ELEVEN_LABS_API_KEY,NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,STRIPE_SECRET_KEY,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,SUPABASE_SERVICE_ROLE_KEY&envDescription=API%20Keys%20and%20other%20environement%20variables%20required%20for%20this%20app%20to%20function%20correctly.&envLink=https%3A%2F%2Fgithub.com%2Fsynchronicity-labs%2Ftranslation-starter%231-initiate-deployment&project-name=translation-starter&repository-name=translation-starter&external-id=https%3A%2F%2Fgithub.com%2Fsynchronicity-labs%2Ftranslation-starter%2Ftree%2Fmain)
@@ -55,36 +57,34 @@ Clicking the Deploy button will open up a browser tab with instructions on gener
 
 1. Create Git Repository
 
-    - Under `Git Scope` select the account you'd like to deploy the repo to.
-    - Under `Repository Name` give your new repo a name.
-  
+   - Under `Git Scope` select the account you'd like to deploy the repo to.
+   - Under `Repository Name` give your new repo a name.
+
 2. Configure Project
 
-    Next we need to enter the environment variables we'll need for the app to function. In order to do this, we'll need to create a new Supabase project, and accounts for all the third party tools we'll be using:
+   Next we need to enter the environment variables we'll need for the app to function. In order to do this, we'll need to create a new Supabase project, and accounts for all the third party tools we'll be using:
 
-    1. Head over to [Supabase](https://supabase.com/) and either create an account or sign in
-   
-    2. Once you are in your Supabase account, click the `New project` button and choose the organization you want this project to live under.
-   
-    3. Enter details for your project and click `Create new project`.
+   1. Head over to [Supabase](https://supabase.com/) and either create an account or sign in
+   2. Once you are in your Supabase account, click the `New project` button and choose the organization you want this project to live under.
+   3. Enter details for your project and click `Create new project`.
 
-    4. Once your project is done initializing, find the environment variables we'll need to set and fill them in the `Configure Project` section of the Vercel Deployment:
+   4. Once your project is done initializing, find the environment variables we'll need to set and fill them in the `Configure Project` section of the Vercel Deployment:
 
-      - NEXT_PUBLIC_SUPABASE_URL
-      - NEXT_PUBLIC_SUPABASE_ANON_KEY
-      - SUPABASE_SERVICE_ROLE_KEY
+   - NEXT_PUBLIC_SUPABASE_URL
+   - NEXT_PUBLIC_SUPABASE_ANON_KEY
+   - SUPABASE_SERVICE_ROLE_KEY
 
-    5. Create accounts with all third party tools, and aquire API keys.
+   5. Create accounts with all third party tools, and aquire API keys.
 
-        Below are guides on how to get API keys for all the third party tools we'll be using. Once you get your API keys, come back to the `Vercel Deployment` and enter them in the remaining fields within the `Configure Project` section.
+      Below are guides on how to get API keys for all the third party tools we'll be using. Once you get your API keys, come back to the `Vercel Deployment` and enter them in the remaining fields within the `Configure Project` section.
 
-         - [Sync Labs API Key](https://docs.synclabs.so/authentication)
-         - [Open AI](https://platform.openai.com/docs/api-reference/authentication)
-         - [Gladia](https://docs.gladia.io/reference/overview#getting-your-api-key)
-         - [Eleven Labs](https://elevenlabs.io/docs/api-reference/authentication)
-         - [Stripe](https://stripe.com/docs/api/authentication)
+      - [Sync Labs API Key](https://docs.synclabs.so/authentication)
+      - [Open AI](https://platform.openai.com/docs/api-reference/authentication)
+      - [Gladia](https://docs.gladia.io/reference/overview#getting-your-api-key)
+      - [Eleven Labs](https://elevenlabs.io/docs/api-reference/authentication)
+      - [Stripe](https://stripe.com/docs/api/authentication)
 
-    6. Click `Deploy` and wait for your project to deploy to Vercel
+   6. Click `Deploy` and wait for your project to deploy to Vercel
 
 ### 2. Configure Auth
 
@@ -99,29 +99,28 @@ You'll need to configure your Supabase project's site URL and Vercel's `NEXT_PUB
 After that, you'll need to create a new storage bucket within your Supabase project to store video and audio files.
 
 1. In your Supabase project, navigate to `Storage` and click the `New bucket` button.
-   
 2. Enter `translation` as the name for your new bucket and toggle `Public bucket` to on.
 
 3. Click `Save`
 
 4. Still in the `Storage` section of your Supabase project, click `Policies` and add the below policy:
 
-  - Within the section called `translation` (the name of your bucket) click `New policy` then `For full costumization` and fill it in as shown below:
+- Within the section called `translation` (the name of your bucket) click `New policy` then `For full costumization` and fill it in as shown below:
 
-    [![Screenshot of translation storage bucket policy](./public/supabase-translation-bucket-policy.png)](https://translation-phi.vercel.app/)
+  [![Screenshot of translation storage bucket policy](./public/supabase-translation-bucket-policy.png)](https://translation-phi.vercel.app/)
 
-  - Within the section called `Other policies under storage.objects` add the following three policies:
+- Within the section called `Other policies under storage.objects` add the following three policies:
 
-    [![Screenshot of storage bucket insert policy](./public/supabase-storage-insert-policy.png)](https://translation-phi.vercel.app/)
+  [![Screenshot of storage bucket insert policy](./public/supabase-storage-insert-policy.png)](https://translation-phi.vercel.app/)
 
-    [![Screenshot of storage bucket select policy](./public/supabase-storage-select-policy.png)](https://translation-phi.vercel.app/)
+  [![Screenshot of storage bucket select policy](./public/supabase-storage-select-policy.png)](https://translation-phi.vercel.app/)
 
-    [![Screenshot of storage bucket update policy](./public/supabase-storage-update-policy.png)](https://translation-phi.vercel.app/)
+  [![Screenshot of storage bucket update policy](./public/supabase-storage-update-policy.png)](https://translation-phi.vercel.app/)
 
 ### 4. Run migration file to set up tables and permissions in Supabase
 
 1. Head to your new Github repo and find the migrations file (supabase > migrations > 20230530034630_init.sql)
-  
+
 2. Copy the contents of the migrations file and head back to Supabase.
 
 3. From your projects home page, navigate to the `SQL Editor` and paste in the contents of the migrations file.
@@ -134,7 +133,7 @@ Next, you'll need to configure [Stripe](https://stripe.com/) in order to handle 
 
 1. Create a [Stripe](https://stripe.com/) account if you don't have one yet
 2. Ensure you are in ["Test Mode"](https://stripe.com/docs/testing) by toggling the `Test Mode` switch at the top of the dashboard to the `ON` position.
-  
+
 #### Create a webhook
 
 1. In Stripe's `Developers` section, navigate to the [Webhooks](https://dashboard.stripe.com/test/webhooks) tab and click `Add endpoint`
@@ -154,12 +153,10 @@ With the Stripe webhook setup, you can start creating your products in the [Stri
 
 Note - When creating products in Stripe, make sure you add a key/value pair with a key of `credits` and a value equal to the credit allowance for this product.
 
-
 #### Configure the customer portal
 
 - Set up branding in the [Branding settings](https://dashboard.stripe.com/settings/branding)
 - Set up the customer portal in the [Customer Portal settings](https://dashboard.stripe.com/test/settings/billing/portal)
-
 
 ### 6. (Optional) Set up Github as a OAuth provider in Supabase
 
@@ -167,7 +164,7 @@ Note - When creating products in Stripe, make sure you add a key/value pair with
 
 ## Running locally
 
-### 1. Clone your GitHub repository to your local machine 
+### 1. Clone your GitHub repository to your local machine
 
 ### 2. Link your project using the `Vercel CLI`
 
@@ -187,6 +184,7 @@ In a terminal navigate to your project's root directory and enter the following 
 ```bash
 vercel env pull .env.local
 ```
+
 This command will create a new `.env.local` file in your project folder.
 
 ### 4. Test webhooks using the `Stripe CLI`

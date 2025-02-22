@@ -28,8 +28,8 @@
     - [License](#license)
     - [Common Problems](#common-problems)
 
-
 ## tldr
+
 launch your own video translation app w/ this repo. in <15 mins you can integrate video translation, voice cloning, and lip-syncing into your business / workflows.
 
 ## How its built
@@ -67,26 +67,26 @@ Clicking the Deploy button will open up a browser tab with instructions on gener
 
 1. Create Git Repository
 
-    - Under `Git Scope` select the account you'd like to deploy the repo to.
-    - Under `Repository Name` give your new repo a name.
+   - Under `Git Scope` select the account you'd like to deploy the repo to.
+   - Under `Repository Name` give your new repo a name.
 
 2. Add Integrations
 
-    - The [Supabase Vercel Deploy Integration](https://vercel.com/integrations/supabase) handles configuration of environment variables and initiates the [SQL migrations](./supabase/migrations/20230530034630_init.sql) to construct your database schema. You can view the resulting tables in your project's [Table editor](https://app.supabase.com/project/_/editor).
+   - The [Supabase Vercel Deploy Integration](https://vercel.com/integrations/supabase) handles configuration of environment variables and initiates the [SQL migrations](./supabase/migrations/20230530034630_init.sql) to construct your database schema. You can view the resulting tables in your project's [Table editor](https://app.supabase.com/project/_/editor).
 
-      - Click `Add` in the Supabase integration and fill out the form that pops up.
+     - Click `Add` in the Supabase integration and fill out the form that pops up.
 
-    - The [Inngest Vercel Integration](https://vercel.com/integrations/inngest) handles configuration of environment variables related to Inngest.
+   - The [Inngest Vercel Integration](https://vercel.com/integrations/inngest) handles configuration of environment variables related to Inngest.
 
-      - Click `Add` in the Inngest integration and fill out the form that pops up.
+     - Click `Add` in the Inngest integration and fill out the form that pops up.
 
 3. Configure Project
 
-    Enter the environment variables required for this project. Below are links to documentation on how to obtain an API key for each of the required services to ensure full functionality.
+   Enter the environment variables required for this project. Below are links to documentation on how to obtain an API key for each of the required services to ensure full functionality.
 
-    - [Sync Labs](https://docs.synclabs.so/authentication)
-    - [Gladia](https://docs.gladia.io/reference/overview#getting-your-api-key)
-    - [Eleven Labs](https://elevenlabs.io/docs/api-reference/authentication)
+   - [Sync Labs](https://docs.synclabs.so/authentication)
+   - [Gladia](https://docs.gladia.io/reference/overview#getting-your-api-key)
+   - [Eleven Labs](https://elevenlabs.io/docs/api-reference/authentication)
 
 ### 2. Configure Auth
 
@@ -101,24 +101,23 @@ You'll need to configure your Supabase project's site URL and Vercel's `NEXT_PUB
 After that, you'll need to create a new storage bucket within your Supabase project to store video and audio files.
 
 1. In your Supabase project, navigate to `Storage` and click the `New bucket` button.
-   
 2. Enter `translation` as the name for your new bucket and toggle `Public bucket` to on.
 
 3. Click `Save`
 
 4. Still in the `Storage` section of your Supabase project, click `Policies` and add the below policy:
 
-  - Within the section called `translation` (the name of your bucket) click `New policy` then `For full costumization` and fill it in as shown below:
+- Within the section called `translation` (the name of your bucket) click `New policy` then `For full costumization` and fill it in as shown below:
 
-    [![Screenshot of translation storage bucket policy](./public/supabase-translation-bucket-policy.png)](https://translation-phi.vercel.app/)
+  [![Screenshot of translation storage bucket policy](./public/supabase-translation-bucket-policy.png)](https://translation-phi.vercel.app/)
 
-  - Within the section called `Other policies under storage.objects` add the following three policies:
+- Within the section called `Other policies under storage.objects` add the following three policies:
 
-    [![Screenshot of storage bucket insert policy](./public/supabase-storage-insert-policy.png)](https://translation-phi.vercel.app/)
+  [![Screenshot of storage bucket insert policy](./public/supabase-storage-insert-policy.png)](https://translation-phi.vercel.app/)
 
-    [![Screenshot of storage bucket select policy](./public/supabase-storage-select-policy.png)](https://translation-phi.vercel.app/)
+  [![Screenshot of storage bucket select policy](./public/supabase-storage-select-policy.png)](https://translation-phi.vercel.app/)
 
-    [![Screenshot of storage bucket update policy](./public/supabase-storage-update-policy.png)](https://translation-phi.vercel.app/)
+  [![Screenshot of storage bucket update policy](./public/supabase-storage-update-policy.png)](https://translation-phi.vercel.app/)
 
 ### 4. (Optional) Configure Stripe
 
@@ -144,7 +143,6 @@ When you innevitably want to make changes to the app, you'll need to run it loca
 
 You can deploy a second Supabase project so that you have an environment to use for local development, but this tutorial will assume you're using the Supabase project that you deployed in the top section.
 
-
 ### 1. Clone your GitHub repository to your local machine and make sure to use Node version 19.1.0 or above.
 
 Clone the repository however you prefer.
@@ -154,6 +152,7 @@ Clone the repository however you prefer.
 You can initialize a `.env.local` file by running:
 
 <!-- TODO @Noah: confirm this example file contains all the required variables (EMPTY) -->
+
 ```bash
 cp .env.local.example .env.local
 ```
@@ -172,7 +171,7 @@ stripe listen --forward-to=localhost:3000/api/webhooks
 ```
 
 > Running this Stripe command will print a webhook secret (`whsec_***`), to the console.
-> 
+>
 > **IMPORTANT** -- Set `STRIPE_WEBHOOK_SECRET` to this value in your `.env.local` file.
 
 ### 5. Install dependencies and run the project

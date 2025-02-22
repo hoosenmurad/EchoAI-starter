@@ -8,7 +8,7 @@ enum LogLevel {
   Trace = 1,
   Info = 2,
   Warn = 3,
-  Error = 4,
+  Error = 4
 }
 
 export class SynchronicityLogger {
@@ -34,9 +34,9 @@ export class SynchronicityLogger {
       type: this.format,
       overwrite: {
         transportJSON: (obj) =>
-          SynchronicityLogger.transportJSON(obj, this.format),
+          SynchronicityLogger.transportJSON(obj, this.format)
       },
-      argumentsArrayName: 'args',
+      argumentsArrayName: 'args'
     });
   }
 
@@ -63,7 +63,8 @@ export class SynchronicityLogger {
   static transportJSON(logObj: any, type: 'pretty' | 'json') {
     const args: any[] = logObj.args;
     const metadata =
-      typeof args[args.length - 1] === 'object' && !Array.isArray(args[args.length - 1])
+      typeof args[args.length - 1] === 'object' &&
+      !Array.isArray(args[args.length - 1])
         ? args.pop()
         : {};
     const newLogObj = {
@@ -74,7 +75,7 @@ export class SynchronicityLogger {
       level: logObj._meta.logLevelName,
       pid: process.pid,
       metadata,
-      environment: process.env.ENV_IDENTIFIER || 'unset',
+      environment: process.env.ENV_IDENTIFIER || 'unset'
     };
 
     if (type === 'json') {

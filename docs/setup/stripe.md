@@ -28,8 +28,6 @@ In order to accept payments, you'll need to go through these steps to configure 
 6. Add the `Secret key` as the `STRIPE_SECRET_KEY` environment variable in your Vercel settings and make sure your project redeploys.
 7. Redeploy your project
 
-
-  
 ### Part 3 - Create a webhook
 
 1. Head back to the [Stripe Dashboard](https://dashboard.stripe.com/dashboard) and ensure you are in ["Test Mode"](https://stripe.com/docs/testing) by toggling the `Test Mode` switch at the top of the dashboard to the `ON` position.
@@ -49,8 +47,7 @@ With the Stripe webhook setup, you can start creating your products in the [Stri
 
 <!-- TODO @Noah: Lay out instructions on how to create the first product that can add a bare-minimum monetization loop to the starter project. -->
 
-
-## Extras 
+## Extras
 
 This section is completely optional, but can be used to make your app feel more official, and add some convenience for your users.
 

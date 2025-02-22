@@ -5,7 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     //appDir: true,
-    serverActions: {},
+    serverActions: {}
   },
   webpack: (config) => {
     // Define the `FLUENTFFMPEG_COV` variable as false

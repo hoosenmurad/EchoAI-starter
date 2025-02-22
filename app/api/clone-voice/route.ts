@@ -26,7 +26,9 @@ export async function POST(req: Request) {
 
   if (!audioFile.ok) {
     const errorText = await audioFile.text();
-    logger.error(`Failed to fetch audio file: - status=${audioFile.status} - status-text=${audioFile.statusText}`);
+    logger.error(
+      `Failed to fetch audio file: - status=${audioFile.status} - status-text=${audioFile.statusText}`
+    );
     logger.error(`Error text: ${errorText}`);
     return new Response(JSON.stringify({ error: { statusCode: 500 } }), {
       status: 500
@@ -53,7 +55,9 @@ export async function POST(req: Request) {
 
   if (!voiceClone.ok) {
     const errorResponse = await voiceClone.text();
-    logger.error(`Failed to clone voice: ${voiceClone.status} ${voiceClone.statusText}`);
+    logger.error(
+      `Failed to clone voice: ${voiceClone.status} ${voiceClone.statusText}`
+    );
     logger.error(`Error response: ${errorResponse}`);
 
     const data = {
