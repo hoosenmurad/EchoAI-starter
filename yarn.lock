@@ -1114,10 +1114,10 @@
   resolved "https://registry.npmjs.org/@img/sharp-libvips-darwin-arm64/-/sharp-libvips-darwin-arm64-1.0.4.tgz"
   integrity sha512-XblONe153h0O2zuFfTAbQYAX2JhYmDHeWikp1LM9Hul9gVPjFY427k6dFEcOL72O01QxQsWi761svJ/ev9xEDg==
 
-"@inngest/ai@^0.0.0":
-  version "0.0.0"
-  resolved "https://registry.npmjs.org/@inngest/ai/-/ai-0.0.0.tgz"
-  integrity sha512-Zic5ECvciYFgLyreuAwlD09/QrlHdCLBBZDodf+h9mTicXB1eq6sWgBOMQ4XiR31qVKVj19ADU7mtqF1+f7Lbg==
+"@inngest/ai@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/@inngest/ai/-/ai-0.0.4.tgz"
+  integrity sha512-LZcKfMB8QWBFwO+ZvwYmpX/mxI4OhTfL1YNhQPiOX7Fb1PGOOw8cjvLB/y8bQf3XOqzjpjIk8FpsgzuIFMkpBQ==
   dependencies:
     "@types/node" "^22.10.5"
     typescript "^5.7.3"
@@ -1393,9 +1393,9 @@
     undici-types "~5.26.4"
 
 "@types/node@^22.10.5":
-  version "22.13.1"
-  resolved "https://registry.npmjs.org/@types/node/-/node-22.13.1.tgz"
-  integrity sha512-jK8uzQlrvXqEU91UxiK5J7pKHyzgnI1Qnl0QDHIgVGuolJhRb9EEl28Cj9b3rGR8B2lhFCtvIm5os8lFnO/1Ew==
+  version "22.13.5"
+  resolved "https://registry.npmjs.org/@types/node/-/node-22.13.5.tgz"
+  integrity sha512-+lTU0PxZXn0Dr1NBtC7Y8cR21AJr87dLLU953CWA6pMxxv/UDc7jYAY90upcrie1nRcD6XNG5HOYEDtgW5TxAg==
   dependencies:
     undici-types "~6.20.0"
 
@@ -3054,13 +3054,13 @@ inherits@^2.0.3, inherits@2:
   resolved "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
-inngest@^3.31.7:
-  version "3.31.7"
-  resolved "https://registry.npmjs.org/inngest/-/inngest-3.31.7.tgz"
-  integrity sha512-FUU1oLHzDE/rImV8JxRPOwAoM00Ib2khHK1vk/QXjfaw4WZvOLNhHdp8DGPX3y3HIJanp0bo7Tgkka/Ivxzmmg==
+inngest@^3.31.11:
+  version "3.31.11"
+  resolved "https://registry.npmjs.org/inngest/-/inngest-3.31.11.tgz"
+  integrity sha512-9yzV8OjtycnYFHusZiIRZec9K/BvWbAY+NbzXqatPgNanDOkxxXCpx1ofVwEbDdc2yqzNPpiuOzdrh2cseIATw==
   dependencies:
     "@bufbuild/protobuf" "^2.2.3"
-    "@inngest/ai" "^0.0.0"
+    "@inngest/ai" "0.0.4"
     "@jpwilliams/waitgroup" "^2.1.1"
     "@types/debug" "^4.1.12"
     canonicalize "^1.0.8"
