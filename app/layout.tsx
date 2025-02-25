@@ -30,7 +30,7 @@ export const metadata = {
 
 const bannerCopy = `Launching very soon, watch this space `;
 
-const bannerLink = `https://github.com/synchronicity-labs/translation-starter`;
+const bannerLink = `https://github.com/hoosenmurad/EchoAI-starter`;
 
 export default function RootLayout({
   // Layouts must accept a children prop.
