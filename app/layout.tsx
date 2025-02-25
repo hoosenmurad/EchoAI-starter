@@ -28,7 +28,7 @@ export const metadata = {
   }
 };
 
-const bannerCopy = `voice cloning is suspended: we're limited by 11labs 🙃 w/o bankrupting ourselves we can't offer this service — but you can clone the repo + launch a version for yourself `;
+const bannerCopy = `Launching very soon, watch this space `;
 
 const bannerLink = `https://github.com/synchronicity-labs/translation-starter`;
 
