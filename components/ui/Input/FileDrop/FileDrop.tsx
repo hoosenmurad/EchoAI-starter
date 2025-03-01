@@ -1,14 +1,15 @@
-import { FC, PropsWithChildren, useRef } from 'react';
-
+import { FC, useRef } from 'react';
 import { Stack, Input, Box, Flex } from '@chakra-ui/react';
 import { MdOutlineFileUpload } from 'react-icons/md';
 
-interface Props extends PropsWithChildren {
+interface Props {
   onFilesAdded: (files: File[]) => void;
-  title?: JSX.Element | string;
-  icon?: JSX.Element;
   accept?: string[];
   disabled?: boolean;
+  title?: string;
+  icon?: React.ReactNode;
+  children?: React.ReactNode;
+  file?: File | string;
 }
 
 const FileDrop: FC<Props> = ({
@@ -17,12 +18,14 @@ const FileDrop: FC<Props> = ({
   title,
   icon,
   disabled,
-  children
+  children,
+  file
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
+    if (disabled) return;
 
     if (e.dataTransfer.items) {
       const files: File[] = [];
@@ -65,10 +68,10 @@ const FileDrop: FC<Props> = ({
       justifyContent="center"
       onDrop={handleDrop}
       onDragOver={handleDragOver}
-      onClick={() => fileInputRef.current?.click()}
-      cursor={'pointer'}
+      onClick={() => !disabled && fileInputRef.current?.click()}
+      cursor={disabled ? 'not-allowed' : 'pointer'}
       _hover={{
-        bgColor: 'RGBA(0,0,0,0.4)'
+        bgColor: disabled ? undefined : 'RGBA(0,0,0,0.4)'
       }}
       gap={0}
       position="relative"
@@ -77,12 +80,14 @@ const FileDrop: FC<Props> = ({
         type="file"
         ref={fileInputRef}
         style={{ display: 'none' }}
-        onChange={(e) => handleFileChange(e)}
+        onChange={handleFileChange}
+        accept={accept?.join(',')}
         disabled={disabled}
       />
       <Stack alignItems={'center'}>
         <Box fontSize="4xl">{icon || <MdOutlineFileUpload />}</Box>
         <Flex>{title || 'drag and drop files.'}</Flex>
+        {file && <Box mt={2}>{typeof file === 'string' ? file : file.name}</Box>}
       </Stack>
       {children}
     </Stack>

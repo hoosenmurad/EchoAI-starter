@@ -8,6 +8,7 @@ import {
 import JobGrid from '@/components/feature-playground/ui/JobGrid';
 import MediaInput from '@/components/feature-playground/ui/MediaInput';
 import PageHeader from '@/components/ui/Display/PageHeader';
+import { validateVideoInput } from '../utils/validation';
 
 export const dynamic = 'force-dynamic';
 
@@ -25,6 +26,14 @@ export default async function HomePage() {
   const tag = `Beta`;
 
   const creditsAvailable = creditBalance.remaining > 0;
+
+  const handleVideoUpload = (file: File) => {
+    if (!validateVideoInput(file)) {
+      alert('Invalid video file. Please check the requirements.');
+      return;
+    }
+    // existing upload logic...
+  };
 
   return (
     <Flex

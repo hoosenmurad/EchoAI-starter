@@ -1,24 +1,28 @@
 import { FC } from 'react';
 
-import { Box, Flex, Tooltip, Text } from '@chakra-ui/react';
+import { Box, Flex, Tooltip, Text, Stack, List, ListItem } from '@chakra-ui/react';
 import { FaInfo } from 'react-icons/fa';
 
 interface Props {
   label: string;
-  info: string | JSX.Element;
+  info: string[] | string | JSX.Element;
 }
 
-const Info: FC<Props> = ({ label, info }) => (
-  <Flex w="full" justifyContent="center">
-    <Tooltip hasArrow label={info}>
-      <Flex gap={1} fontSize="xs" alignItems={'center'} cursor={'pointer'}>
-        <Box p={1} bg="whiteAlpha.600" rounded="sm">
-          <FaInfo />
-        </Box>
-        <Text>{label}</Text>
-      </Flex>
-    </Tooltip>
-  </Flex>
-);
+const Info: FC<Props> = ({ label, info }) => {
+  return (
+    <Stack spacing={1}>
+      <Text fontWeight="bold">{label}</Text>
+      {Array.isArray(info) ? (
+        <List spacing={1}>
+          {info.map((item, index) => (
+            <ListItem key={index}>{item}</ListItem>
+          ))}
+        </List>
+      ) : (
+        info
+      )}
+    </Stack>
+  );
+};
 
 export default Info;

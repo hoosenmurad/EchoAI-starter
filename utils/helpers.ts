@@ -1,4 +1,5 @@
 import { Price } from '@/types/db';
+import { FFmpeg } from '@ffmpeg/ffmpeg';
 
 export const getURL = () => {
   let url =
@@ -83,4 +84,17 @@ export const isValidUrl = (url: string) => {
 
 export const exists = (value: any) => {
   return value !== undefined && value !== null && value.trim() !== '';
+};
+
+export const loadFfmpeg = async (): Promise<FFmpeg> => {
+  const ffmpeg = new FFmpeg();
+  await ffmpeg.load();
+  return ffmpeg;
+};
+
+export const validateVideoFile = (file: File): boolean => {
+  const maxSize = 50 * 1024 * 1024; // 50MB
+  const validTypes = ['video/mp4'];
+  
+  return file.size <= maxSize && validTypes.includes(file.type);
 };

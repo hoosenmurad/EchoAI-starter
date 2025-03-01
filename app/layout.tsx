@@ -6,6 +6,8 @@ import Footer from '@/components/ui/Footer';
 import Navbar from '@/components/ui/Navbar';
 
 import SupabaseProvider from './supabase-provider';
+import { Auth } from '@supabase/ui';
+import { useSupabase } from './supabase-provider';
 
 import '@/styles/main.css';
 
@@ -37,6 +39,7 @@ export default function RootLayout({
   // This will be populated with nested layouts or pages
   children
 }: PropsWithChildren) {
+  const { supabase } = useSupabase();
   return (
     <html lang="en">
       <body className="bg-black loading">
@@ -65,7 +68,10 @@ export default function RootLayout({
                 <Navbar />
                 <Flex w="full" flex="1" justifyContent={'center'}>
                   <Flex w="full" maxW="6xl" flex="1">
-                    {children}
+                    <Auth
+                      supabaseClient={supabase}
+                      providers={['google', 'apple']}
+                    />
                   </Flex>
                 </Flex>
               </Flex>

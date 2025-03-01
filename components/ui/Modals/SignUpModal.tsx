@@ -20,22 +20,10 @@ interface Props {
 const SignUpModal: FC<Props> = ({ isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <ModalContent
-        bgColor="whiteAlpah.100"
-        border={'2px solid'}
-        borderColor={'RGBA(255,255,255,0.4)'}
-        m={4}
-        p={4}
-        top={20}
-        maxW={800}
-      >
-        <ModalHeader justifyContent={'center'} alignItems={'center'}>
-          <Flex justifyContent={'center'}>
-            <Text>Sign up to access video translation</Text>
-          </Flex>
-        </ModalHeader>
+      <ModalContent>
+        <ModalHeader>Sign up to continue</ModalHeader>
         <ModalCloseButton />
-        <ModalBody bg="blackAlpha.200" rounded="md">
+        <ModalBody>
           <AuthUI />
         </ModalBody>
       </ModalContent>
