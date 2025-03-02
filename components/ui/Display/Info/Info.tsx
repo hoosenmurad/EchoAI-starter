@@ -5,7 +5,7 @@ import { FaInfo } from 'react-icons/fa';
 
 interface Props {
   label: string;
-  info: string[] | string | JSX.Element;
+  info: string | string[] | JSX.Element | JSX.Element[];
 }
 
 const Info: FC<Props> = ({ label, info }) => {

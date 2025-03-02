@@ -6,9 +6,9 @@ import Info from '@/components/ui/Display/Info';
 
 interface Props {
   url: string;
-  setUrl: (u: string) => void;
+  setUrl: (url: string) => void;
   disabled?: boolean;
-  requirements?: JSX.Element;
+  requirements?: string[] | JSX.Element;
   placeholder?: string;
 }
 
@@ -27,11 +27,16 @@ const UrlInput: FC<Props> = ({
         type="text"
         name="videoUrl"
         placeholder={placeholder || 'enter url'}
-        value={url as string}
+        value={url}
         onChange={(e) => setUrl(e.target.value)}
         isDisabled={disabled}
       />
-      {requirements && <Info label="requirements" info={requirements} />}
+      {requirements && (
+        <Info 
+          label="requirements" 
+          info={Array.isArray(requirements) ? requirements : [requirements]} 
+        />
+      )}
     </Stack>
   );
 };
