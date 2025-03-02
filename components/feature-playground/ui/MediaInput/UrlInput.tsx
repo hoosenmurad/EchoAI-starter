@@ -34,7 +34,7 @@ const UrlInput: FC<Props> = ({
       {requirements && (
         <Info 
           label="requirements" 
-          info={Array.isArray(requirements) ? requirements : [requirements]} 
+          info={requirements}
         />
       )}
     </Stack>
