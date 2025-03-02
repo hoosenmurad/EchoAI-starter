@@ -339,7 +339,7 @@ const MediaInput: FC<Props> = ({ session, creditsAvailable }) => {
                 <Flex p="4">
                   <Info
                     label="requirements"
-                    info={<Requirements requirements={[requirements]} />}
+                    info={requirements.items}
                   />
                 </Flex>
               </FileDrop>
