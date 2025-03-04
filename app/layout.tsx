@@ -1,12 +1,12 @@
 import { PropsWithChildren } from 'react';
 
 import { ChakraProvider, Flex, Link, Stack, Text } from '@chakra-ui/react';
+import { Auth } from '@supabase/ui';
 
 import Footer from '@/components/ui/Footer';
 import Navbar from '@/components/ui/Navbar';
 
 import SupabaseProvider from './supabase-provider';
-import { Auth } from '@supabase/ui';
 import { useSupabase } from './supabase-provider';
 
 import '@/styles/main.css';
@@ -71,7 +71,9 @@ export default function RootLayout({
                     <Auth
                       supabaseClient={supabase}
                       providers={['google', 'apple']}
-                    />
+                    >
+                      {children}
+                    </Auth>
                   </Flex>
                 </Flex>
               </Flex>
